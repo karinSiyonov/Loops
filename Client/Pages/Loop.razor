@@ -1,0 +1,49 @@
+﻿@page "/Loops"
+<h3>Loop</h3>
+<button @onclick="(() => checkIf())">Country Check</button>
+<input type="text" id="txt1" @bind="txt1Input" />
+<p>@message</p>
+<br />
+<p>@countries</p>
+
+
+@if (number > 0 && number <= 10)
+{
+	
+	Console.WriteLine("hello");
+	<ul>
+	@for (int i = 0; i < number; i++)
+	{
+		<li>@myFunc(countryList[i])</li>
+	}
+	</ul>
+}
+
+else
+	{
+		message = "No number between 1 and 10 was found";
+	}
+
+	@code {
+	string txt1Input = "";
+	int number = 0;
+	string countries = "";
+	string message = "";
+	List<string> countryList = new List<string>() {"Israel,Italia,Belgia,Beliz,Brazil,Danmark,Pilipinas,Venezuela,Tanzania,Albania"};
+
+
+	private void checkIf()
+	{
+		number = Convert.ToInt16(txt1Input);
+	}
+
+
+	private string myFunc(string str)
+	{
+		return str + " " + str.Length;
+	}
+
+
+}
+}
+
